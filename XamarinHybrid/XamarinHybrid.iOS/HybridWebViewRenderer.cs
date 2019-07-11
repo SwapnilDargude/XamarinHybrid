@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Foundation;
 using WebKit;
 using Xamarin.Forms;
@@ -40,9 +41,23 @@ namespace XamarinHybrid.iOS
 			}
 		}
 
-		public void DidReceiveScriptMessage (WKUserContentController userContentController, WKScriptMessage message)
+		public void DidReceiveScriptMessage(WKUserContentController userContentController, WKScriptMessage message)
 		{
-			Element.InvokeAction (message.Body.ToString ());
+			//Element.InvokeAction(message.Body.ToString());
+
+			var func = message.Body.ToString();
+			var result = string.Empty;
+			if (func == "myXamarinFunctionIOS")
+			{
+				this.myXamarinFunctionIOS();
+			}
+			
+
+		}
+
+		private void myXamarinFunctionIOS()
+		{
+			//this function was called from javascript
 		}
 	}
 }

@@ -24,6 +24,13 @@ namespace XamarinHybrid.Droid
 				hybridRenderer.Element.InvokeAction (data);
 			}
 		}
+
+		[Export]
+		[JavascriptInterface]
+		public void myXamarinFunctionAndroid(int data)
+		{
+			//this function was called from javascript
+		}
 	}
 }
 
